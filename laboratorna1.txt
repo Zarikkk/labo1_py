@@ -1,0 +1,34 @@
+class Perforator:
+    perforator_count: int = 0
+
+    def __init__(self, name="", punches=0, turnovers=0, color="", producer=""):
+        self.name = name
+        self.punches = punches
+        self.turnovers = turnovers
+        self.color = color
+        self.producer = producer
+        Perforator.perforator_count += 1
+
+    def __str__(self) -> str:
+        return f" Name: {self.name}\n  punches: {self.punches}  " \
+               f"per.sec\n  turnovers: {self.turnovers}\n  color: {self.color}\n  producer: {self.producer}"
+
+    def __del__(self):
+        del self
+
+    @classmethod
+    def get_count(cls) -> int:
+        return cls.perforator_count
+
+
+def main():
+    obj1 = Perforator("PerfoX", 300, 100, "Black", "Philips")
+    obj2 = Perforator("iPerf", 1000, 550, "Blue", "Apple")
+
+    print(obj1)
+    print(obj2)
+    Perforator.get_count()
+
+
+if __name__ == "__main__":
+    main()
